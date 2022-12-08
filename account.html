@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<h2>{{ user_name }} {{ user_type }} Portal</h2>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Schedule')">Schedule</button>
+  <button class="tablinks" onclick="openCity(event, 'Requests')">Requests</button>
+</div>
+
+<div id="Requests" class="tabcontent">
+  <h3>Meeting Request</h3>
+    <br>
+    <form action='#' method="post">
+      <p>Date</p>
+      <input type="date" name="date1" />
+      <!--
+      <form action="/action_page.php">
+        <label for="date">Date:</label>
+        <input type="date" id="date1" name="date">
+      </form><br>
+      -->
+      
+      <p>Appointment Time</p>
+      <label for="drop-time">Drop off  time: </label>
+      <input id="dropTime" type="time" name="dropTime" value="12:00" >
+      <label for="pick-time">Pick up time: </label>
+      <input id="pickUpTime" type="time" name="pickUpTime" value="13:00" >
+      <br><br>
+      
+      
+      <p>Interested Activities </p>
+      <ul name="checks">
+        <li><input type="checkbox" value="read" name="checkboxes"> Reading</li>
+        <li><input type="checkbox" value="bocce" name="checkboxes"> Bocce</li>
+        <li><input type="checkbox" value="chess" name="checkboxes"> Chess</li>
+        <li><input type="checkbox" value="lawnBowl" name="checkboxes"> Lawn Bowling</li>
+        <li><input type="checkbox" value="boardGames" name="checkboxes"> Board Games</li>
+        <li><input type="checkbox" value="baking" name="checkboxes"> Baking</li>
+        <li><input type="checkbox" value="lunch" name="checkboxes"> Lunch</li>
+        <li><input type="checkbox" value="fishing" name="checkboxes"> Fishing</li>
+      </ul>
+      
+      
+
+      <!--
+      <input type="checkbox" id="read1" name="read1" value="read">
+      <label for="read1"> Reading </label>
+      <input type="checkbox" id="lunch" name="lunch" value="Lunch">
+      <label for="lunch"> Lunch</label><br>
+
+      <input type="checkbox" id="Bocce" name="Bocce" value="Bocce">
+      <label for="Bocce">Bocce Ball </label>
+      <input type="checkbox" id="boardGames" name="boardGames" value="boardGames">
+      <label for="boardGames">Board Games</label><br>
+
+      <input type="checkbox" id="Chess" name="chess" value="chess">
+      <label for="chess">Chess</label>
+      <input type="checkbox" id="baking" name="baking" value="baking">
+      <label for="Baking">Baking</label>
+      <br>
+      <input type="checkbox" id="lawnBowl" name="lawnBowl" value="lawnBowl">
+      <label for="lunch"> Lawn Bowling</label>
+      <input type="checkbox" id="fishing" name="fishing" value="fishing">
+      <label for="Bocce">Fishing </label>
+      -->
+
+      <br><br> 
+      <input type="submit" value="Submit Request"> 
+    </form>
+</div>
+
+<div id="Schedule" class="tabcontent">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+    </script>
+    <title>Calendar</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="calendar"></div>
+    </div>
+    
+  </body> 
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+   
+</body>
+</html> 

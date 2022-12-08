@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package grpc;
+
+message Empty {}
+
+message Mssg {
+    string name = 1;   
+    string userType = 2; 
+    string eventType = 3; 
+    string eventName = 4; 
+    string date = 5; 
+    string timeSlots = 6;  
+    string activities = 7; 
+    string message = 8;
+    string other = 9;
+}
+
+message Response {
+    string message = 1;
+}
+
+message Number {
+    int32 value = 1;
+    string name = 2;
+}
+
+service ChatServer {
+    rpc ChatStream (Number) returns (stream Mssg);
+    rpc EventCheck (Number) returns (stream Mssg);
+    rpc SendMssg (Mssg) returns (Response);
+    rpc RequestAccess (Mssg) returns (Mssg);
+    rpc OpenRequests (Number) returns (stream Mssg);
+}
