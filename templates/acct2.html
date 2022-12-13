@@ -70,16 +70,16 @@ rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCE
     <h2>{{ user_name }} {{ user_type }} Portal</h2>
     <div id="page" style="width: 100%;">
         <div id="Requests" style="width: 35%; height: 100px; float: left; padding: 10px;">
-            <h4>Meeting Request</h4>
+            <h4><b>Meeting Request</b></h4>
                 <br>
                 <form action='#' method="post">
-                <p>Date</p>
-                <input type="date" name="date1" />
+                    <p><b>Date</b></p>
+                <input type="date" name="date1" /> <br /> <br />
         
-                <p>Appointment Time</p>
-                <label for="drop-time">Drop off  time: </label>
-                <input id="dropTime" type="time" name="dropTime" value="12:00" >
-                <label for="pick-time">Pick up time: </label>
+                    <p><b>Appointment Time</b></p>
+                <label for="drop-time">Drop off  time: </label> <br />
+                <input id="dropTime" type="time" name="dropTime" value="12:00" > <br /> <br />
+                <label for="pick-time">Pick up time: </label> <br />
                 <input id="pickUpTime" type="time" name="pickUpTime" value="13:00" >
                 <br><br>
                 
@@ -112,11 +112,11 @@ rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCE
                 <div id="calendar"></div>
             </div>
             <br>
-            <p>{% for each in sent_msg %}
-                    {{ each }}
-                    
-                {% endfor %}
-            </p>
+{#            <p>{% for each in sent_msg %}#}
+{#                    {{ each }}#}
+{#                    #}
+{#                {% endfor %}#}
+{#            </p>#}
             </body> 
         </div>
     </div>
